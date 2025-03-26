@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0px;
+  padding: 0px;
+  color: #333;
+}
+
+nav {
+  background-color: #777;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  font-size: 24px;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  padding: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: rgb(156, 203, 237);
+  text-decoration: none;
+}
+
+.section {
+  display: block;
+  border-bottom: 2px solid #77777711;
+  padding: 30px;
+  margin: 50px;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  color: #555;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+  border-bottom: #9ab9e7;
+}
+
+.section h2 {
+  font-size: 30px;
+  color: rgb(58, 164, 240) !important;
+  margin-bottom: 10px;
+  display: inline-block;
+  border-bottom: 2px solid #9ab9e7 !important;
+}
+
+section {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
+}
+
+section h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+section p {
+  font-size: 16px;
+}
+
+#Contact ul {
+  list-style-type: none;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+footer {
+  background-color: #1d1d1dcd;
+  color: azure;
+  text-align: center;
+  padding: 10px;
+}
+footer p {
+  margin: 0px 0; /* Khoảng cách giữa các đoạn văn trong footer */
+}
