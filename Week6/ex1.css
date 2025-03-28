@@ -1,0 +1,27 @@
+* {
+  font: 20px "Comics Sans Ms";
+}
+p {
+  display: block;
+  text-decoration: underline;
+  text-align: center;
+  width: 500px;
+  text-transform: capitalize;
+}
+div {
+  background-color: yellow;
+  margin: 0px 0px 5px 5px;
+  width: 500px;
+}
+
+.class2 {
+  color: red;
+  font-weight: bold;
+  width: 400px;
+}
+#thehighest.class2 {
+  background-color: #333;
+  font-weight: none;
+  font: italic 30px "Times New Roman";
+  color: white;
+}
