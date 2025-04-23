@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rectangle Perimeter and Area</title>
+    <script>
+      function calculateRectangle() {
+        var length = parseFloat(document.getElementById("length").value);
+        var width = parseFloat(document.getElementById("width").value);
+
+        if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+          alert("Please enter valid positive numbers for length and width.");
+          return;
+        }
+
+        var perimeter = 2 * (length + width);
+        var area = length * width;
+
+        document.getElementById("rectangleResults").innerHTML =
+          "Perimeter: " + perimeter + "<br>Area: " + area;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Rectangle Perimeter and Area</h2>
+    <label for="length">Length:</label>
+    <input type="number" id="length" name="length" required />
+    <br /><br />
+    <label for="width">Width:</label>
+    <input type="number" id="width" name="width" required />
+    <br /><br />
+    <button onclick="calculateRectangle()">Calculate</button>
+
+    <p id="rectangleResults"></p>
+  </body>
+</html>
