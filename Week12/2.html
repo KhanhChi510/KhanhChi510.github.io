@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation</title>
+    <style>
+      body {
+        font-style: italic;
+        padding: 25px;
+        margin: 20px auto;
+        text-align: center;
+        max-width: 500px;
+        border-radius: 8px;
+        line-height: 200%;
+      }
+      h2 {
+        color: white;
+        background-color: rgb(54, 104, 212);
+        text-align: center;
+        font-size: 24px;
+        border-bottom: 2px olid #3498db;
+        font-style: normal;
+      }
+      button {
+        padding: 8px 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>REGISTER NEW ACCOUNT</h2>
+    <form name="frmRegister" method="get" onsubmit="return formValid()">
+      <div class="nname">
+        <label for="txtUsername">Username</label>
+        <input type="text" id="txtUsername" name="txtUsername" />
+      </div>
+
+      <div class="password">
+        <label for="txtPassword1">Password</label>
+        <input type="password" id="txtPassword1" name="txtPassword1" />
+      </div>
+
+      <div class="password2">
+        <label for="txtPassword2">Confirm password</label>
+        <input type="password" id="txtPassword2" name="txtPassword2" />
+      </div>
+
+      <div class="gender">
+        <label>Gender</label>
+        <input type="radio" name="gender" value="Female" />Female
+        <input type="radio" name="gender" value="Male" />Male
+      </div>
+
+      <div class="Phone">
+        <label for="txtPhone">Phone</label>
+        <input type="text" id="txtPhone" name="txtPhone" />
+      </div>
+
+      <div class="Email">
+        <label for="txtEmail">Email</label>
+        <input type="email" id="txtEmail" name="txtEmail" />
+      </div>
+
+      <div class="Favorite">
+        <label>Favorite</label>
+        <input type="checkbox" name="favorite" value="Music" />Music
+        <input type="checkbox" name="favorite" value="Reading" />Reading
+      </div>
+
+      <div class="Picture">
+        <label for="fiPicture">Picture</label>
+        <input type="file" id="fiPicture" name="fiPicture" />
+      </div>
+
+      <div class="Description">
+        <label for="txtDescription">Description</label>
+        <textarea id="txtDescription" name="txtDescription" rows="5"></textarea>
+      </div>
+
+      <div class="Education">
+        <label for="selEducation">Education level</label>
+        <select id="selEducation" name="selEducation">
+          <option value="aptech">Aptech</option>
+          <option value="highschool">High School</option>
+          <option value="university">University</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="Languages">
+        <label>Languages</label>
+        <select id="selLanguage" name="language">
+          <option value="Vietnamese">Vietnamese</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="Japanese">Japanese</option>
+        </select>
+      </div>
+
+      <div class="buton">
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <script>
+      function formValid() {
+        var f = document.frmRegister;
+
+        // Regex patterns: ktra định dạng sdt và email
+        var phone_pattern = /^(\(0\d{1,3}\)\d{7})|(0\d{9,10})$/;
+        var email_pattern = /^[a-zA-Z]\w*(\.\w+)*@\w+(\.\w{2,3})+$/;
+
+        // Validate username: ktra mảng username
+        if (f.txtUsername.value.trim() === "") {
+          ///trim loại bỏ khoảng trắng thừa
+          alert("Username can't be empty");
+          f.txtUsername.focus();
+          return false;
+        }
+
+        // Validate password
+        if (f.txtPassword1.value.length < 6) {
+          alert("Password length must be from 6 to 20 characters");
+          f.txtPassword1.focus();
+          return false;
+        }
+
+        // Validate password match
+        if (f.txtPassword1.value !== f.txtPassword2.value) {
+          alert("Password doesn't match");
+          f.txtPassword2.focus();
+          return false;
+        }
+
+        // Validate phone
+        if (!phone_pattern.test(f.txtPhone.value)) {
+          alert("Invalid phone number");
+          f.txtPhone.focus();
+          return false;
+        }
+
+        // Validate email
+        if (!email_pattern.test(f.txtEmail.value)) {
+          alert("Invalid email address");
+          f.txtEmail.focus();
+          return false;
+        }
+
+        // Validate at least one favorite selected
+        if (!f.chkMusic.checked && !f.chkReading.checked) {
+          alert("You must select at least one favourite");
+          f.chkMusic.focus();
+          return false;
+        }
+
+        // Validate picture
+        if (f.fiPicture.value === "") {
+          alert("You must select your picture");
+          f.fiPicture.focus();
+          return false;
+        }
+
+        // Validate description
+        if (f.txtDescription.value.trim() === "") {
+          alert("You must enter description");
+          f.txtDescription.focus();
+          return false;
+        }
+
+        alert("All register information are correct.");
+        return true;
+      }
+    </script>
+  </body>
+</html>
