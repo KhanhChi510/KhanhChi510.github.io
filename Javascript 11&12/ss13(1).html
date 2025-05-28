@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Display date and time</title>
+    <style type="text/css">
+      input {
+        width: 400px;
+      }
+    </style>
+    <script language="javascript">
+      var timer = null;
+      function play() {
+        //hàm play cập nhật time
+        var daysOfWeek = [
+          "Chủ Nhật",
+          "Thứ hai",
+          "Thứ ba",
+          "Thứ tư",
+          "Thứ năm",
+          "Thứ sáu",
+          "Thứ bảy",
+        ];
+        var today = new Date();
+        document.f.d.value = //biến d là thứ ngày tháng năm
+          "Hôm nay là: " +
+          daysOfWeek[today.getDay()] + //getday: trả về thứ trong tuần
+          ", ngày " +
+          today.getDate() + //getDate: trả về ngày trong tuần
+          ", tháng " +
+          (today.getMonth() + 1) + //getmonth: trả về tháng trong tuần
+          ", năm " +
+          today.getFullYear(); //getFullYear: trả về năm
+        h = today.getHours(); //gethours: trả về giờ
+        document.f.t.value = //biến t trả về giờ giây phút
+          "Bây giờ là: " +
+          (h > 12 ? h - 12 : h) + //chuyển từ định dạng 24h -> 12h (: h Nếu không → giữ nguyên)
+          ":" +
+          (today.getMinutes() < 10 ? "0" : "") + //Nếu phút < 10 thì thêm số 0 phía trước.
+          today.getMinutes() +
+          ":" +
+          (today.getSeconds() < 10 ? "0" : "") + //tương tự phần phút, xử lý để giây luôn có 2 chữ số.
+          today.getSeconds() +
+          " " +
+          (h > 11 ? "PM" : "AM"); //// xác định buổi sáng hay chiều
+        timer = setTimeout("play()", 1000); ///setTimeout() gọi lại chính nó sau 1 giây → tạo hiệu ứng đồng hồ "chạy"
+      }
+      function stop() {
+        ///stop cập nhật
+        clearTimeout(timer);
+      }
+    </script>
+  </head>
+  <body onload="play()">
+    <center>
+      <form name="f">
+        <input name="d" /><br /><input name="t" /><br />
+        //ô input để hiển thị ngày và giờ hiện tại.
+        <button type="button" onclick="play()">Chạy đồng hồ</button>
+        <button type="button" onclick="stop()">Ngừng đồng hồ</button>
+      </form>
+    </center>
+  </body>
+</html>

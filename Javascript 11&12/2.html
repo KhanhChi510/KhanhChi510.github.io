@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var txta = prompt("Enter any integer");
+      if (txta == null || txta == "" || isNaN(txta))
+        document.write("<font color='red'>You must enter a number</font>");
+      else if (txta % 2 == 0)
+        document.write(
+          //ghi nội dung trực tiếp ra trang HTML
+          "<font color='green'><b>" + txta + " is an even number</b></font>" //<b> In đậm (bold) nội dung nằm giữa hai thẻ
+        );
+      else
+        document.write(
+          "<font color='blue'><i>" + txta + " is an odd number</i></font>" //<i>...</i>: In nghiêng (italic) nội dung nằm giữa hai thẻ.
+        );
+    </script>
+  </head>
+  <body></body>
+</html>

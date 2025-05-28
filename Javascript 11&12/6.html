@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini calculate</title>
+    <script>
+      function calculate() {
+        var a = document.frmCal.txta;
+        var b = document.frmCal.txtb;
+        var o = document.frmCal.slto; // danh sách chọn (select) phép toán
+        var r = document.frmCal.txtr;
+        var numberFormat = /^[+-]?\d+(\.\d+)?$/; //kiểm tra xem chuỗi có phải là một số thực hợp lệ hay không (có thể âm, dương, có thập phân hoặc không)
+        if (numberFormat.test(a.value) == false) {
+          //test số a có hợp lệ ko
+          alert("a must be a number!");
+          a.focus(); //Nếu a không phải số → hiện cảnh báo và trỏ chuột lại vào ô a để nhập lại gtri aa
+        } else if (numberFormat.test(b.value) == false) {
+          alert("b must be a number!");
+          b.focus();
+        } else if (
+          (o.value == "/" || o.value == "%") && //ktra dkien để không cố chia cho 0
+          parseInt(b.value) == 0 //chuyển từ chuỗi sang số
+        ) {
+          alert("b can't be 0!");
+          r.value = ""; //xóa ô kết quả r
+          b.focus(); //Trả con trỏ chuột về ô nhập b để người dùng sửa
+        } else r.value = eval(a.value + o.value + b.value); //eval() để tính ra kết quả; Tạo phép toán dạng chuỗi, ví dụ: "5" + "+" + "3" → "5+3"
+      }
+    </script>
+  </head>
+  <body>
+    <form name="frmCal">
+      <table border="0" align="center">
+        <tr>
+          <td colspan="2" align="center">
+            //gộp 2 cột vs nhau cho tiêu đề h2 trải vs rowspan
+            <h2>MINI CALCULATOR</h2>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">a=</td>
+          <td><input name="txta" /></td>
+        </tr>
+        <tr>
+          <td align="right">b=</td>
+          <td><input name="txtb" /></td>
+        </tr>
+        <tr>
+          <td align="right">Operator:</td>
+          <td>
+            <select name="slto">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+              <option value="%">%</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Result:</td>
+          <td><input name="txtr" readonly /></td>
+          //ng dùng chỉ đc xemxem
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="button" value="calculate" onclick="calculate()" />
+            //bấm gọi hàm calculate()
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

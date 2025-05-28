@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script language="javascript">
+      var txta = prompt("Enter number A"); //prompt hiển thị dl dạng chuỗi
+      var txtb = prompt("Enter number B");
+      if (txta == null || txta == "" || isNaN(txta)) {
+        alert("Number A is formatted incorrect"); //alert(hộp hiển thịthị)
+      } else if (txtb == null || txtb == "" || isNaN(txtb)) {
+        //isNaN(hàm kiểm tra không phải số)
+        alert("Number B is formatted incorrect");
+      } else {
+        var result = parseFloat(txta) + parseFloat(txtb); //parseFloat() là vì prompt() trả về dữ liệu dưới dạng chuỗi. Nếu bạn cộng trực tiếp hai chuỗi thì sẽ ra phép nối chuỗi, không phải phép cộng số học
+        alert("Result:\n" + txta + "+" + txtb + "=" + result); //hiển thị hộp kết quả
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
